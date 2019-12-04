@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum SearchScope {
+    case artist
+    case song
+}
+
 class ViewController: UIViewController {
 
     // outlets and variables
@@ -22,11 +27,23 @@ class ViewController: UIViewController {
         }
     }
     
-//    var searchQuerey = "" {
-//        didSet{
-//            ta
-//        }
-//    }
+    var currentScope = SearchScope.artist
+
+    // this holds the current search querey
+    var searchQuerey = "" {
+        didSet{
+            switch currentScope{
+            case .artist:
+                allSongs = Song.loveSongs.filter {
+                    $0.artist.lowercased().contains(searchQuerey.lowercased())
+                }
+            case .song:
+                allSongs = Song.loveSongs.filter {
+                    $0.name.lowercased().contains(searchQuerey.lowercased())
+                }
+            }
+                    }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +88,15 @@ extension ViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         
+        switch selectedScope{
+        case 0:
+            currentScope = .artist
+        case 1:
+            currentScope = .song
+        default:
+            print("not within scope")
+        }
+        
     }
  
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -78,12 +104,10 @@ extension ViewController: UISearchBarDelegate {
             loadData()
             return
         }
+        //filterHeadline(searchText)
         
-        filterHeadline(searchText)
-        
-        //searchQuerey = searchText
+        searchQuerey = searchText
     }
-    
     
 }
 
