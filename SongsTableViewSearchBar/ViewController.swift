@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class ViewController: UIViewController {
 
     // outlets and variables
@@ -32,6 +30,15 @@ class ViewController: UIViewController {
     
     func loadData() {
         allSongs = Song.loveSongs
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailsViewController = segue.destination as? DetailsViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
+        
+        // assigns the detailsController variable the selected variable from the view controller...
+        detailsViewController.selectedSong = allSongs[indexPath.row]
+        
+        
     }
 
 }

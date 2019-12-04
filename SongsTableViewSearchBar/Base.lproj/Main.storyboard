@@ -43,6 +43,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="4z0-cB-zdg" kind="show" id="Sya-qf-3Xw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -64,6 +67,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4Ov-7e-BR3">
+            <objects>
+                <viewController id="4z0-cB-zdg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qb7-8x-GSX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGp-TE-C0l">
+                                <rect key="frame" x="131" y="152" width="152" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name of the Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dba-bm-Ztk">
+                                <rect key="frame" x="137" y="196" width="141" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HBb-pL-VTE">
+                                <rect key="frame" x="57" y="310" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="KVh-oW-GPC"/>
+                                    <constraint firstAttribute="height" constant="300" id="hgc-XE-kTU"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hEf-iE-Yip" firstAttribute="trailing" secondItem="Dba-bm-Ztk" secondAttribute="trailing" constant="136" id="3NM-Qu-UqO"/>
+                            <constraint firstItem="QGp-TE-C0l" firstAttribute="top" secondItem="hEf-iE-Yip" secondAttribute="top" constant="64" id="9r4-Ng-T0o"/>
+                            <constraint firstItem="HBb-pL-VTE" firstAttribute="leading" secondItem="hEf-iE-Yip" secondAttribute="leading" constant="57" id="A2F-B4-ApA"/>
+                            <constraint firstItem="QGp-TE-C0l" firstAttribute="leading" secondItem="hEf-iE-Yip" secondAttribute="leading" constant="131" id="AB5-JC-PkF"/>
+                            <constraint firstItem="HBb-pL-VTE" firstAttribute="top" secondItem="Dba-bm-Ztk" secondAttribute="bottom" constant="93" id="Iav-Wp-OJv"/>
+                            <constraint firstItem="Dba-bm-Ztk" firstAttribute="top" secondItem="QGp-TE-C0l" secondAttribute="bottom" constant="8" id="Iu9-go-MdV"/>
+                            <constraint firstItem="hEf-iE-Yip" firstAttribute="trailing" secondItem="HBb-pL-VTE" secondAttribute="trailing" constant="57" id="XGz-JP-icu"/>
+                            <constraint firstItem="hEf-iE-Yip" firstAttribute="trailing" secondItem="QGp-TE-C0l" secondAttribute="trailing" constant="131" id="mrH-vq-yK3"/>
+                            <constraint firstItem="Dba-bm-Ztk" firstAttribute="leading" secondItem="hEf-iE-Yip" secondAttribute="leading" constant="137" id="y7Z-8L-IaQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hEf-iE-Yip"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vs4-Fh-0SP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMe-le-0pc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1810.144927536232" y="112.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pdp-9P-CO7">
