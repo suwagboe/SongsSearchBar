@@ -43,7 +43,6 @@ class ViewController: UIViewController {
     
     func filterHeadline(_ searchText: String) {
         
-        
         guard !searchText.isEmpty else {
             return
         }
