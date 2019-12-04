@@ -8,35 +8,49 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
 
     // outlets and variables
     @IBOutlet weak var tableView: UITableView!
     
-    var songs = [Song]() {
+    var allSongs = [Song]()
+    {
         didSet{
             tableView.reloadData()
+            // if this is found nil then that means you haven't connected the tableView....
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
         
+        loadData()
+        tableView.dataSource = self
+    }
+    
+    func loadData() {
+        allSongs = Song.loveSongs
     }
 
 }
 
+
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songs.count
+        return allSongs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath)
         
-        //let selectedSong = tableView[indexPath.row]
+       let selectedSong = allSongs[indexPath.row]
+        
+        cell.textLabel?.text = selectedSong.name
+        
+        cell.detailTextLabel?.text = selectedSong.artist
         
         return cell
         
