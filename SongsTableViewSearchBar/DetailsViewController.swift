@@ -18,7 +18,7 @@ class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //MARK: what is the default image. 
         
         artistNameLabel.text = selectedSong?.artist
         songNameLabel.text = selectedSong?.name

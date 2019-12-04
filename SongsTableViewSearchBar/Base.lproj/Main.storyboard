@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AcF-NR-2T0">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="152" width="414" height="744"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songCell" textLabel="Fac-2I-gUB" detailTextLabel="vTD-fP-dfv" style="IBUITableViewCellStyleSubtitle" id="wlk-Xy-Zt9">
@@ -49,18 +49,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="EFY-2v-U4Z">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AcF-NR-2T0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0Od-S1-x5p"/>
-                            <constraint firstAttribute="bottom" secondItem="AcF-NR-2T0" secondAttribute="bottom" id="Hau-HH-o7Y"/>
-                            <constraint firstItem="AcF-NR-2T0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oJg-rA-cs8"/>
-                            <constraint firstItem="AcF-NR-2T0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zuw-Ux-DuB"/>
+                            <constraint firstItem="EFY-2v-U4Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6eM-xF-7d9"/>
+                            <constraint firstItem="AcF-NR-2T0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="90O-RO-kaO"/>
+                            <constraint firstAttribute="bottom" secondItem="AcF-NR-2T0" secondAttribute="bottom" id="LKl-ov-j5K"/>
+                            <constraint firstItem="EFY-2v-U4Z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TER-Zs-e6Y"/>
+                            <constraint firstItem="AcF-NR-2T0" firstAttribute="top" secondItem="EFY-2v-U4Z" secondAttribute="bottom" constant="8" id="gdU-hF-3CR"/>
+                            <constraint firstItem="AcF-NR-2T0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="su6-u4-fl4"/>
+                            <constraint firstItem="EFY-2v-U4Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zUs-mz-wee"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="OPF-Aw-gJF"/>
                     <connections>
+                        <outlet property="searchBar" destination="EFY-2v-U4Z" id="FJh-uD-25O"/>
                         <outlet property="tableView" destination="AcF-NR-2T0" id="jcP-tJ-x2R"/>
                     </connections>
                 </viewController>

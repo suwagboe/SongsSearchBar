@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     // outlets and variables
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var allSongs = [Song]()
     {
@@ -21,28 +22,71 @@ class ViewController: UIViewController {
         }
     }
     
+//    var searchQuerey = "" {
+//        didSet{
+//            ta
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadData()
         tableView.dataSource = self
+        searchBar.delegate = self
+        
     }
     
     func loadData() {
         allSongs = Song.loveSongs
     }
     
+    func filterHeadline(_ searchText: String) {
+        
+        
+        guard !searchText.isEmpty else {
+            return
+        }
+        
+        allSongs = Song.loveSongs.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        
+        
+        }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailsViewController = segue.destination as? DetailsViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
         
         // assigns the detailsController variable the selected variable from the view controller...
         detailsViewController.selectedSong = allSongs[indexPath.row]
-        
-        
     }
+    
 
 }
-
+extension ViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //to take away the keep board
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        
+    }
+ 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            loadData()
+            return
+        }
+        
+        filterHeadline(searchText)
+        
+        //searchQuerey = searchText
+    }
+    
+    
+}
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
