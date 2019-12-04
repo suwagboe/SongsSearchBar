@@ -19,6 +19,11 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        artistNameLabel.text = selectedSong?.artist
+        songNameLabel.text = selectedSong?.name
+      //  imageView.image = selectedSong?.image
+        
     }
     
     
