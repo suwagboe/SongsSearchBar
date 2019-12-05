@@ -13,6 +13,7 @@ enum SearchScope {
     case song
 }
 
+
 class ViewController: UIViewController {
 
     // outlets and variables
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
     var allSongs = [Song]()
     {
         didSet{
+           
             tableView.reloadData()
             // if this is found nil then that means you haven't connected the tableView....
         }
@@ -59,16 +61,17 @@ class ViewController: UIViewController {
     }
     
     func filterHeadline(_ searchText: String) {
-        
+        print("the filterHeadline function is being used")
         guard !searchText.isEmpty else {
             return
         }
-        
         allSongs = Song.loveSongs.filter { $0.name.lowercased().contains(searchText.lowercased()) }
-        
-        
         }
     
+    func checkingTheSearch(_ searchText: String) {
+        
+        
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailsViewController = segue.destination as? DetailsViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
@@ -82,12 +85,13 @@ class ViewController: UIViewController {
 extension ViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("inside of searchbarClick")
         //to take away the keep board
         searchBar.resignFirstResponder()
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
+        print("inside of selectedScopeButtonIndex")
         switch selectedScope{
         case 0:
             currentScope = .artist
@@ -101,6 +105,7 @@ extension ViewController: UISearchBarDelegate {
  
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
+            print("inside of textDidChange")
             loadData()
             return
         }
@@ -113,10 +118,18 @@ extension ViewController: UISearchBarDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("inside of numberOfRowsInSection")
+        if allSongs.count == 0 {
+            tableView.tintColor = .red
+            navigationItem.title = "you entered an invalid search please try again"
+            
+            
+        }
         return allSongs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath)
         
