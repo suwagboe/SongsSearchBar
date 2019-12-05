@@ -88,6 +88,13 @@ extension ViewController: UISearchBarDelegate {
         print("inside of searchbarClick")
         //to take away the keep board
         searchBar.resignFirstResponder()
+        
+            
+                //  searchActive = false
+                     // self.searchBar.endEditing(true)
+        
+        
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
@@ -120,10 +127,13 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("inside of numberOfRowsInSection")
         if allSongs.count == 0 {
+//            self.tableView.
+            searchBar.resignFirstResponder()
             tableView.tintColor = .red
             navigationItem.title = "you entered an invalid search please try again"
-            
-            
+        }
+        else if allSongs.count > 0 {
+            navigationItem.title = ""
         }
         return allSongs.count
     }
